@@ -34,7 +34,7 @@ export default function NavLinks() {
 
       <Link
         href="/contact"
-        className="bg-secondary text-black px-5 py-3 rounded-xl hover:bg-yellow-300 transition"
+        className="bg-secondary text-black text-md px-5 py-2 rounded-xl hover:bg-yellow-300 transition"
       >
         Get in Touch
       </Link>

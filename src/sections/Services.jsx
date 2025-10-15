@@ -73,7 +73,7 @@ const services = [
       {/* View Services Button */}
         <Link
           href="/services"
-          className="block mx-auto w-fit bg-secondary text-black px-10 py-5 rounded-3xl hover:bg-yellow-500 transition"
+          className="block mx-auto w-fit bg-secondary text-black px-10 py-3 rounded-xl hover:bg-yellow-500 transition"
         >
           View Services
         </Link>

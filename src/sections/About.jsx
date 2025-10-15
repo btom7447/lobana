@@ -36,7 +36,7 @@ export default function AboutSection() {
           data-aos="fade-right"
           data-aos-delay="300"
           href={"/about"}
-          className="block w-fit mt-5 border border-secondary text-secondary px-10 py-5 rounded-3xl hover:bg-secondary hover:text-black transition"
+          className="block w-fit mt-5 border border-secondary text-secondary px-10 py-3 rounded-xl hover:bg-secondary hover:text-black transition"
         >
           Learn More
         </Link>

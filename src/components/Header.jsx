@@ -34,7 +34,7 @@ export default function Header() {
     <>
       {/* Original Header (over hero) */}
       <header
-        className={`absolute top-0 left-0 z-40 w-full flex items-center justify-between -pl-5 lg:-pl-0 px-5 lg:px-10 py-0 lg:py-5 border-b transition-all duration-300 ${
+        className={`absolute top-0 left-0 z-40 w-full flex items-center justify-between -pl-5 lg:-pl-0 px-5 lg:px-10 py-0 border-b transition-all duration-300 ${
           scrolled
             ? "bg-white border-gray-200 text-blue-950"
             : "bg-transparent border-white text-white"
@@ -79,7 +79,7 @@ export default function Header() {
 
       {/* Fixed Header */}
       <header
-        className={`fixed top-0 left-0 z-50 w-screen flex items-center justify-between px-5 lg:px-10 py-0 lg:py-5 border-b border-gray-200 bg-white shadow-md transition-transform duration-500 ${
+        className={`fixed top-0 left-0 z-50 w-screen flex items-center justify-between px-5 lg:px-10 py-0 border-b border-gray-200 bg-white shadow-md transition-transform duration-500 ${
           showFixedHeader ? "translate-y-0" : "-translate-y-full"
         }`}
       >

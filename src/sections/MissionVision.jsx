@@ -101,13 +101,13 @@ export default function MissionVisionSection() {
         <div className="flex gap-10 absolute bottom-5 left-5 lg:left-20 z-10">
           <button
             onClick={() => splideRef.current?.go("<")}
-            className="bg-transparent border border-gray-300 text-black p-3 rounded-full hover:bg-secondary hover:text-black transition"
+            className="bg-transparent border border-black text-black p-3 rounded-full hover:bg-secondary hover:text-black transition"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
           <button
             onClick={() => splideRef.current?.go(">")}
-            className="bg-transparent border border-gray-300 text-black p-3 rounded-full hover:bg-secondary hover:text-black transition"
+            className="bg-transparent border border-black text-black p-3 rounded-full hover:bg-secondary hover:text-black transition"
           >
             <ChevronRight className="w-5 h-5" />
           </button>

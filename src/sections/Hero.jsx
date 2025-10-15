@@ -29,10 +29,10 @@ export default function HeroSection() {
           Your trusted partner in Real Estate, Trade, Agriculture and Global
           Investments
         </p>
-        <div className="mt-10 flex flex-col sm:flex-row gap-5 justify-center">
+        <div className="mt-10 flex flex-col sm:flex-row gap-15 justify-center">
           <Link
             href={"/consultation"}
-            className="block border border-white px-10 py-5 rounded-3xl hover:bg-white hover:text-black transition"
+            className="block border border-white px-10 py-3 rounded-2xl hover:bg-white hover:text-black transition"
             data-aos="fade-up"
             data-aos-delay="300"
           >
@@ -40,7 +40,7 @@ export default function HeroSection() {
           </Link>
           <Link
             href={"/services"}
-            className="block bg-secondary text-black px-10 py-5 rounded-3xl hover:bg-yellow-500 transition"
+            className="block bg-secondary text-black px-10 py-3 rounded-2xl hover:bg-yellow-500 transition"
             data-aos="fade-up"
             data-aos-delay="40"
           >

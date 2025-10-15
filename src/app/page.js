@@ -11,6 +11,7 @@ import ServiceSection from "@/sections/Services";
 import MissionVisionSection from "@/sections/MissionVision";
 import WhySection from "@/sections/Why";
 import TestimonialSection from "@/sections/Testimonial";
+import GetInTouch from "@/sections/GetInTouch";
 
 export default function HomePage() {
    useEffect(() => {
@@ -33,6 +34,7 @@ export default function HomePage() {
       <MissionVisionSection />
       <WhySection />
       <TestimonialSection />
+      <GetInTouch />
     </>
   )
 }
