@@ -23,25 +23,18 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    if (scrolled) {
-      setIsOriginalOpen(false);
-      setIsFixedOpen(false);
-    }
-  }, [scrolled]);
-
   return (
     <>
       {/* Original Header (over hero) */}
       <header
-        className={`absolute top-0 left-0 z-40 w-full flex items-center justify-between -pl-5 lg:-pl-0 px-5 lg:px-10 py-0 border-b transition-all duration-300 ${
+        className={`absolute top-0 left-0 z-40 w-full flex items-center justify-between px-5 lg:px-10 py-0 border-b transition-all duration-300 ${
           scrolled
             ? "bg-white border-gray-200 text-blue-950"
             : "bg-transparent border-white text-white"
         }`}
       >
         {/* Logo */}
-        <Link href="/" className="">
+        <Link href="/">
           <Image
             src="/images/lobana-logo-white.png"
             alt="Lobana Logo"
@@ -60,9 +53,7 @@ export default function Header() {
         <button
           onClick={() => setIsOriginalOpen(!isOriginalOpen)}
           className={`block lg:hidden rounded-xl p-3 border transition-colors ${
-            scrolled
-              ? "border-black text-black"
-              : "border-white text-white"
+            scrolled ? "border-black text-black" : "border-white text-white"
           }`}
           aria-label="Toggle Menu"
         >
