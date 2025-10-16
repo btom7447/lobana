@@ -48,7 +48,7 @@ export default function OurValuesSection() {
       </p>
 
       {/* Services Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-20 my-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto my-10">
         {values.map((service, index) => (
           <div
             key={service.title}
