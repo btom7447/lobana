@@ -5,7 +5,7 @@ import { MoonLoader } from "react-spinners";
 import { toast } from "react-toastify";
 import CustomSelect from "./CustomSelect";
 
-const interests = [
+const subjects = [
   "Renewable Energy Projects",
   "Funding & Investment",
   "Smart Grid Solutions",
@@ -13,12 +13,12 @@ const interests = [
   "Other",
 ];
 
-export default function PartnerForm() {
+export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    interest: "",
+    subject: "",
     message: "",
   });
   const [loading, setLoading] = useState(false);
@@ -31,46 +31,46 @@ export default function PartnerForm() {
     });
   };
 
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     setLoading(true);
+  //   const handleSubmit = async (e) => {
+  //     e.preventDefault();
+  //     setLoading(true);
 
-//     try {
-//       const res = await fetch("/api/partner", {
-//         method: "POST",
-//         headers: { "Content-Type": "application/json" },
-//         body: JSON.stringify(formData),
-//       });
+  //     try {
+  //       const res = await fetch("/api/partner", {
+  //         method: "POST",
+  //         headers: { "Content-Type": "application/json" },
+  //         body: JSON.stringify(formData),
+  //       });
 
-//       const data = await res.json();
+  //       const data = await res.json();
 
-//       if (res.ok) {
-//         toast.success("Partnership request submitted!");
-//         setFormData({
-//           organization: "",
-//           email: "",
-//           phone: "",
-//           orgType: "",
-//           interest: "",
-//           message: "",
-//           agree: false,
-//           otherOrgType: "",
-//         });
-//       } else {
-//         toast.error(data.message || "⚠️ Something went wrong");
-//       }
-//     } catch (err) {
-//       console.error("❌ Error:", err);
-//       toast.error("Server error. Please try again.");
-//     } finally {
-//       setLoading(false);
-//     }
-//   };
+  //       if (res.ok) {
+  //         toast.success("Partnership request submitted!");
+  //         setFormData({
+  //           organization: "",
+  //           email: "",
+  //           phone: "",
+  //           orgType: "",
+  //           interest: "",
+  //           message: "",
+  //           agree: false,
+  //           otherOrgType: "",
+  //         });
+  //       } else {
+  //         toast.error(data.message || "⚠️ Something went wrong");
+  //       }
+  //     } catch (err) {
+  //       console.error("❌ Error:", err);
+  //       toast.error("Server error. Please try again.");
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
 
   return (
     <form
       //   onSubmit={handleSubmit}
-      className="p-5 lg:p-10 rounded-3xl grid grid-cols-1 xl:grid-cols-2 gap-5 bg-white border border-gray-300 w-full max-w-6xl mx-auto my-10"
+      className="xl:col-span-2 p-5 lg:p-10 rounded-3xl grid grid-cols-1 xl:grid-cols-2 gap-5 bg-white border border-gray-300 w-full max-w-6xl mx-auto"
     >
       {/* Organization Name */}
       <input
@@ -107,18 +107,18 @@ export default function PartnerForm() {
       {/* Area of Interest (custom select) */}
       <div className="">
         <CustomSelect
-          label="Select Area of Interest"
-          options={interests}
-          value={formData.interest}
+          label="Subject"
+          options={subjects}
+          value={formData.subject}
           onChange={handleChange}
-          name="interest"
+          name="subject"
         />
       </div>
 
       {/* Message */}
       <textarea
         name="message"
-        placeholder="Tell us about your partnership interest, company background, and how we can work together..."
+        placeholder="Message ..."
         value={formData.message}
         onChange={handleChange}
         required

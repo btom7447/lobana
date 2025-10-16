@@ -17,7 +17,7 @@ export default function CustomSelect({
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className="w-full flex justify-between items-center p-5 rounded-2xl border border-gray-300 bg-white text-black text-lg font-light focus:outline-none focus:ring-1 focus:ring-yellow-500"
+        className="w-full flex justify-between items-center p-5 rounded-2xl border border-gray-300 bg-white text-black text-lg font-light focus:outline-none focus:ring-1 focus:ring-secondary"
       >
         {value || label}
         <ChevronDown
