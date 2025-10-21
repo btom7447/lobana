@@ -9,7 +9,7 @@ import NavLinks from "./NavLinks";
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [showFixedHeader, setShowFixedHeader] = useState(false);
-const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,6 +21,8 @@ const [isMenuOpen, setIsMenuOpen] = useState(false);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
   return (
     <>
@@ -42,13 +44,15 @@ const [isMenuOpen, setIsMenuOpen] = useState(false);
             className="w-24 h-auto object-contain"
           />
         </Link>
+
         {/* Desktop Nav */}
         <div className="hidden lg:block text-white">
           <NavLinks />
         </div>
+
         {/* Mobile Menu Toggle */}
         <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          onClick={toggleMenu}
           className={`block lg:hidden rounded-xl p-3 border transition-colors ${
             scrolled ? "border-black text-black" : "border-white text-white"
           }`}
@@ -60,8 +64,6 @@ const [isMenuOpen, setIsMenuOpen] = useState(false);
             <MenuIcon size={20} strokeWidth={1} />
           )}
         </button>
-        {/* Mobile Nav Menu */}
-        <NavMenu isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
       </header>
 
       {/* Fixed Header */}
@@ -80,16 +82,16 @@ const [isMenuOpen, setIsMenuOpen] = useState(false);
             className="w-24 h-auto object-contain"
           />
         </Link>
+
         {/* Desktop Nav */}
         <div className="hidden lg:block text-black">
           <NavLinks />
         </div>
+
         {/* Mobile Menu Toggle */}
         <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className={`block lg:hidden rounded-xl p-3 border transition-colors ${
-            scrolled ? "border-black text-black" : "border-white text-white"
-          }`}
+          onClick={toggleMenu}
+          className="block lg:hidden rounded-xl p-3 border border-black text-black transition-colors"
           aria-label="Toggle Menu"
         >
           {isMenuOpen ? (
@@ -98,9 +100,10 @@ const [isMenuOpen, setIsMenuOpen] = useState(false);
             <MenuIcon size={20} strokeWidth={1} />
           )}
         </button>
-        {/* Mobile Nav Menu */}
-        <NavMenu isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
       </header>
+
+      {/* ✅ Single NavMenu rendered once */}
+      <NavMenu isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
     </>
   );
 }
