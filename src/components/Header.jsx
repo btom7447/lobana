@@ -9,8 +9,7 @@ import NavLinks from "./NavLinks";
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [showFixedHeader, setShowFixedHeader] = useState(false);
-  const [isOriginalOpen, setIsOriginalOpen] = useState(false);
-  const [isFixedOpen, setIsFixedOpen] = useState(false);
+const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -84,27 +83,26 @@ export default function Header() {
             className="w-24 h-auto object-contain"
           />
         </Link>
-
         {/* Desktop Nav */}
         <div className="hidden lg:block text-black">
           <NavLinks />
         </div>
-
         {/* Mobile Menu Toggle */}
         <button
-          onClick={() => setIsFixedOpen(!isFixedOpen)}
-          className="block lg:hidden rounded-xl p-3 border border-black text-black transition-colors"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className={`block lg:hidden rounded-xl p-3 border transition-colors ${
+            scrolled ? "border-black text-black" : "border-white text-white"
+          }`}
           aria-label="Toggle Menu"
         >
-          {isFixedOpen ? (
+          {isMenuOpen ? (
             <X size={20} strokeWidth={1} />
           ) : (
             <MenuIcon size={20} strokeWidth={1} />
           )}
         </button>
-
         {/* Mobile Nav Menu */}
-        <NavMenu isOpen={isFixedOpen} setIsOpen={setIsFixedOpen} />
+        <NavMenu isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />{" "}
       </header>
     </>
   );
