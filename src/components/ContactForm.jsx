@@ -30,45 +30,53 @@ export default function ContactForm() {
     });
   };
 
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-      setLoading(true);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
 
-      try {
-        const res = await fetch("/api/contact", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
+    try {
+      // 1️⃣ Send to your backend route
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      // 2️⃣ Send to Formspree (replace with your unique form ID)
+      await fetch("https://formspree.io/f/mpwyeewz", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        toast.success("Message sent!");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
         });
-
-        const data = await res.json();
-
-        if (res.ok) {
-          toast.success("Message sent!");
-          setFormData({
-            name: "",
-            email: "",
-            phone: "",
-            subject: "",
-            message: "",
-          });
-        } else {
-          toast.error(data.message || "⚠️ Something went wrong");
-        }
-      } catch (err) {
-        console.error("❌ Error:", err);
-        toast.error("Server error. Please try again.");
-      } finally {
-        setLoading(false);
+      } else {
+        toast.error(data.message || "⚠️ Something went wrong");
       }
-    };
+    } catch (err) {
+      console.error("❌ Error:", err);
+      toast.error("Server error. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <form
       onSubmit={handleSubmit}
       className="xl:col-span-2 p-5 lg:p-10 rounded-3xl grid grid-cols-1 xl:grid-cols-2 gap-5 bg-white border border-gray-300 w-full"
     >
-      {/* Organization Name */}
+      {/* Name */}
       <input
         type="text"
         name="name"
@@ -79,7 +87,7 @@ export default function ContactForm() {
         className="p-5 rounded-2xl border border-gray-300 bg-white text-black text-lg font-light placeholder:text-black focus:outline-none focus:ring-1 focus:ring-secondary"
       />
 
-      {/* Phone (optional) */}
+      {/* Phone */}
       <input
         type="tel"
         name="phone"
@@ -100,7 +108,7 @@ export default function ContactForm() {
         className="p-5 rounded-2xl border border-gray-300 bg-white text-black text-lg font-light placeholder:text-black focus:outline-none focus:ring-1 focus:ring-secondary"
       />
 
-      {/* Area of Interest (custom select) */}
+      {/* Subject */}
       <div className="">
         <CustomSelect
           label="Subject"
@@ -122,14 +130,14 @@ export default function ContactForm() {
         className="col-span-1 xl:col-span-2 p-5 rounded-2xl border border-gray-300 bg-white text-black text-lg font-light placeholder:text-black focus:outline-none focus:ring-1 focus:ring-secondary"
       />
 
-      {/* Submit */}
+      {/* Submit Button */}
       <div className="mt-10 col-span-1 xl:col-span-2 flex items-center justify-center">
         <button
           type="submit"
           disabled={loading}
           className="flex items-center justify-center bg-highlight px-10 py-2 rounded-xl hover:bg-yellow-300 text-black font-medium text-lg transition-colors duration-300"
         >
-          {loading ? <MoonLoader size={20} color="#fff" /> : "Submit"}
+          {loading ? <MoonLoader size={20} color="#000" /> : "Submit"}
         </button>
       </div>
     </form>

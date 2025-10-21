@@ -17,66 +17,92 @@ export default function Header() {
       setScrolled(scrollY > 50);
       setShowFixedHeader(scrollY > 150);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
-  const renderHeader = (isFixed = false) => (
-    <header
-      className={`${isFixed ? "fixed z-50 shadow-md" : "absolute z-40"} 
-        top-0 left-0 w-full flex items-center justify-between 
-        px-5 lg:px-10 py-0 border-b transition-all duration-300
-        ${isFixed ? "bg-white border-gray-200" : scrolled ? "bg-white border-gray-200" : "bg-transparent border-white"}
-      `}
-    >
-      {/* Logo */}
-      <Link href="/">
-        <Image
-          src={isFixed || scrolled ? "/images/lobana-logo-black.png" : "/images/lobana-logo-white.png"}
-          alt="Lobana Logo"
-          width={100}
-          height={40}
-          className="w-24 h-auto object-contain"
-        />
-      </Link>
+  return (
+    <>
+      {/* Original Header (over hero) */}
+      <header
+        className={`absolute top-0 left-0 z-40 w-full flex items-center justify-between px-5 lg:px-10 py-0 border-b transition-all duration-300 ${
+          scrolled
+            ? "bg-white border-gray-200 text-blue-950"
+            : "bg-transparent border-white text-white"
+        }`}
+      >
+        {/* Logo */}
+        <Link href="/">
+          <Image
+            src="/images/lobana-logo-white.png"
+            alt="Lobana Logo"
+            width={100}
+            height={40}
+            className="w-24 h-auto object-contain"
+          />
+        </Link>
 
-      {/* Desktop Nav */}
-      <div className={`hidden lg:block ${isFixed || scrolled ? "text-black" : "text-white"}`}>
-        <NavLinks />
-      </div>
+        {/* Desktop Nav */}
+        <div className="hidden lg:block text-white">
+          <NavLinks />
+        </div>
 
-      {/* Mobile Menu Toggle (only one visible at any given time) */}
-      {!isMenuOpen && (
+        {/* Mobile Menu Toggle */}
         <button
           onClick={toggleMenu}
           className={`block lg:hidden rounded-xl p-3 border transition-colors ${
-            isFixed || scrolled ? "border-black text-black" : "border-white text-white"
+            scrolled ? "border-black text-black" : "border-white text-white"
           }`}
           aria-label="Toggle Menu"
         >
-          {isMenuOpen ? <X size={20} strokeWidth={1} /> : <MenuIcon size={20} strokeWidth={1} />}
+          {isMenuOpen ? (
+            <X size={20} strokeWidth={1} />
+          ) : (
+            <MenuIcon size={20} strokeWidth={1} />
+          )}
         </button>
-      )}
-    </header>
-  );
+      </header>
 
-  return (
-    <>
-      {/* Absolute header (shown before scroll) */}
-      {!showFixedHeader && renderHeader(false)}
-
-      {/* Fixed header (slides in after scroll) */}
-      <div
-        className={`transition-transform duration-500 ${
+      {/* Fixed Header */}
+      <header
+        className={`fixed top-0 left-0 z-50 w-screen flex items-center justify-between px-5 lg:px-10 py-0 border-b border-gray-200 bg-white shadow-md transition-transform duration-500 ${
           showFixedHeader ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        {renderHeader(true)}
-      </div>
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-2">
+          <Image
+            src="/images/lobana-logo-black.png"
+            alt="Lobana Logo"
+            width={100}
+            height={40}
+            className="w-24 h-auto object-contain"
+          />
+        </Link>
 
-      {/* Nav Menu */}
+        {/* Desktop Nav */}
+        <div className="hidden lg:block text-black">
+          <NavLinks />
+        </div>
+
+        {/* Mobile Menu Toggle */}
+        <button
+          onClick={toggleMenu}
+          className="block lg:hidden rounded-xl p-3 border border-black text-black transition-colors"
+          aria-label="Toggle Menu"
+        >
+          {isMenuOpen ? (
+            <X size={20} strokeWidth={1} />
+          ) : (
+            <MenuIcon size={20} strokeWidth={1} />
+          )}
+        </button>
+      </header>
+
+      {/* ✅ Single NavMenu rendered once */}
       <NavMenu isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
     </>
   );

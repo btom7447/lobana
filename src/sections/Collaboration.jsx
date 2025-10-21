@@ -112,7 +112,7 @@ export default function CollaborationSection() {
               <h4 className="text-lg font-semibold text-gray-800 mb-5">
                 Partnership Benefits:
               </h4>
-              <ul className="grid grid-cols-2 gap-y-2 text-sm text-gray-700">
+              <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-2 text-sm text-gray-700">
                 {item.benefits.map((benefit, i) => (
                   <li
                         key={i}
