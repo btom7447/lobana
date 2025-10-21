@@ -28,23 +28,13 @@ export default function Header() {
       className={`${isFixed ? "fixed z-50 shadow-md" : "absolute z-40"} 
         top-0 left-0 w-full flex items-center justify-between 
         px-5 lg:px-10 py-0 border-b transition-all duration-300
-        ${
-          isFixed
-            ? "bg-white border-gray-200"
-            : scrolled
-            ? "bg-white border-gray-200"
-            : "bg-transparent border-white"
-        }
+        ${isFixed ? "bg-white border-gray-200" : scrolled ? "bg-white border-gray-200" : "bg-transparent border-white"}
       `}
     >
       {/* Logo */}
       <Link href="/">
         <Image
-          src={
-            isFixed || scrolled
-              ? "/images/lobana-logo-black.png"
-              : "/images/lobana-logo-white.png"
-          }
+          src={isFixed || scrolled ? "/images/lobana-logo-black.png" : "/images/lobana-logo-white.png"}
           alt="Lobana Logo"
           width={100}
           height={40}
@@ -53,11 +43,7 @@ export default function Header() {
       </Link>
 
       {/* Desktop Nav */}
-      <div
-        className={`hidden lg:block ${
-          isFixed || scrolled ? "text-black" : "text-white"
-        }`}
-      >
+      <div className={`hidden lg:block ${isFixed || scrolled ? "text-black" : "text-white"}`}>
         <NavLinks />
       </div>
 
@@ -66,17 +52,11 @@ export default function Header() {
         <button
           onClick={toggleMenu}
           className={`block lg:hidden rounded-xl p-3 border transition-colors ${
-            isFixed || scrolled
-              ? "border-black text-black"
-              : "border-white text-white"
+            isFixed || scrolled ? "border-black text-black" : "border-white text-white"
           }`}
           aria-label="Toggle Menu"
         >
-          {isMenuOpen ? (
-            <X size={20} strokeWidth={1} />
-          ) : (
-            <MenuIcon size={20} strokeWidth={1} />
-          )}
+          {isMenuOpen ? <X size={20} strokeWidth={1} /> : <MenuIcon size={20} strokeWidth={1} />}
         </button>
       )}
     </header>
