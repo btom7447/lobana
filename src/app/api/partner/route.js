@@ -10,7 +10,10 @@ export async function GET() {
     return NextResponse.json(partners, { status: 200 });
   } catch (error) {
     console.error("❌ Error fetching partners:", error);
-    return NextResponse.json({ message: "Failed to fetch partners", error: error.message }, { status: 500 });
+    return NextResponse.json(
+      { message: "Failed to fetch partners", error: error.message },
+      { status: 500 }
+    );
   }
 }
 
@@ -19,15 +22,31 @@ export async function POST(req) {
   try {
     await connectToDB();
     const body = await req.json();
+    const { name, email, phone, interest, message } = body;
 
-    if (!body.organization || !body.email || !body.orgType || !body.interest || !body.message) {
-      return NextResponse.json({ message: "All required fields must be filled." }, { status: 400 });
+    if (!name || !email || !interest || !message) {
+      return NextResponse.json(
+        { message: "All required fields must be filled." },
+        { status: 400 }
+      );
     }
 
-    const newPartner = await Partner.create(body);
-    return NextResponse.json({ message: "Partnership request submitted!", data: newPartner }, { status: 201 });
+    const newPartner = await Partner.create({
+      name,
+      email,
+      phone,
+      interest,
+      message,
+    });
+    return NextResponse.json(
+      { message: "Partnership request submitted!", data: newPartner },
+      { status: 201 }
+    );
   } catch (error) {
     console.error("❌ Partner submission error:", error);
-    return NextResponse.json({ message: "Error submitting request", error: error.message }, { status: 500 });
+    return NextResponse.json(
+      { message: "Error submitting request", error: error.message },
+      { status: 500 }
+    );
   }
 }

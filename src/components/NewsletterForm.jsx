@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { toast } from "react-toastify";
-import { ToastContainer } from "react-toastify";
 
 export default function NewsletterForm() {
   const [email, setEmail] = useState("");
@@ -23,7 +22,7 @@ export default function NewsletterForm() {
       const data = await res.json();
 
       if (res.ok) {
-        toast.success("🎉 Subscribed successfully!");
+        toast.success("We'll keep you updated!");
         setEmail("");
       } else {
         toast.error(data.message || "Something went wrong");
@@ -43,7 +42,7 @@ export default function NewsletterForm() {
       <h6 className="text-2xl font-light text-secondary mb-5">
         Keep me Updated
       </h6>
-      <div className="max-w-lg flex items-center justify-between rounded-full border border-gray-300 bg-white p-1">
+      <div className="overflow-hidden max-w-lg flex items-center justify-between rounded-full border border-gray-300 bg-white p-1">
         <input
           type="email"
           placeholder="Enter your email"

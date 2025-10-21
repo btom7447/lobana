@@ -2,6 +2,8 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -22,6 +24,7 @@ export default function RootLayout({ children }) {
       <Header />
       <body className={`${montserrat.variable} antialiased`}>{children}</body>
       <Footer />
+      <ToastContainer position="top-right" autoClose={3000} />
     </html>
   );
 }

@@ -6,16 +6,22 @@ export async function POST(req) {
   await connectToDB();
 
   try {
-    const { name, email, message } = await req.json();
+    const { name, email, phone, subject, message } = await req.json();
 
     if (!name || !email || !message) {
       return NextResponse.json(
-        { message: "All fields are required" },
+        { message: "Name, email, and message are required" },
         { status: 400 }
       );
     }
 
-    const newContact = await Contact.create({ name, email, message });
+    const newContact = await Contact.create({
+      name,
+      email,
+      phone,
+      subject,
+      message,
+    });
 
     return NextResponse.json(
       { message: "Message received!", data: newContact },

@@ -35,7 +35,7 @@ export default function ContactForm() {
       setLoading(true);
 
       try {
-        const res = await fetch("/api/partner", {
+        const res = await fetch("/api/contact", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formData),
@@ -44,7 +44,7 @@ export default function ContactForm() {
         const data = await res.json();
 
         if (res.ok) {
-          toast.success("Partnership request submitted!");
+          toast.success("Message sent!");
           setFormData({
             name: "",
             email: "",
@@ -65,8 +65,8 @@ export default function ContactForm() {
 
   return (
     <form
-        onSubmit={handleSubmit}
-      className="xl:col-span-2 p-5 lg:p-10 rounded-3xl grid grid-cols-1 xl:grid-cols-2 gap-5 bg-white border border-gray-300 w-full max-w-6xl mx-auto"
+      onSubmit={handleSubmit}
+      className="xl:col-span-2 p-5 lg:p-10 rounded-3xl grid grid-cols-1 xl:grid-cols-2 gap-5 bg-white border border-gray-300 w-full"
     >
       {/* Organization Name */}
       <input
