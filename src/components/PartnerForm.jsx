@@ -6,11 +6,10 @@ import { toast } from "react-toastify";
 import CustomSelect from "./CustomSelect";
 
 const interests = [
-  "Renewable Energy Projects",
-  "Funding & Investment",
-  "Smart Grid Solutions",
-  "Pilot Programs",
-  "Other",
+  "Real Estate",
+  "Trade & Commerce",
+  "Agriculture",
+  "Investment",
 ];
 
 export default function PartnerForm() {
@@ -31,45 +30,42 @@ export default function PartnerForm() {
     });
   };
 
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     setLoading(true);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
 
-//     try {
-//       const res = await fetch("/api/partner", {
-//         method: "POST",
-//         headers: { "Content-Type": "application/json" },
-//         body: JSON.stringify(formData),
-//       });
+    try {
+      const res = await fetch("/api/partner", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-//       const data = await res.json();
+      const data = await res.json();
 
-//       if (res.ok) {
-//         toast.success("Partnership request submitted!");
-//         setFormData({
-//           organization: "",
-//           email: "",
-//           phone: "",
-//           orgType: "",
-//           interest: "",
-//           message: "",
-//           agree: false,
-//           otherOrgType: "",
-//         });
-//       } else {
-//         toast.error(data.message || "⚠️ Something went wrong");
-//       }
-//     } catch (err) {
-//       console.error("❌ Error:", err);
-//       toast.error("Server error. Please try again.");
-//     } finally {
-//       setLoading(false);
-//     }
-//   };
+      if (res.ok) {
+        toast.success("Partnership request submitted!");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          interest: "",
+          message: "",
+        });
+      } else {
+        toast.error(data.message || "⚠️ Something went wrong");
+      }
+    } catch (err) {
+      console.error("❌ Error:", err);
+      toast.error("Server error. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <form
-      //   onSubmit={handleSubmit}
+        onSubmit={handleSubmit}
       className="p-5 lg:p-10 rounded-3xl grid grid-cols-1 xl:grid-cols-2 gap-5 bg-white border border-gray-300 w-full max-w-6xl mx-auto my-10"
     >
       {/* Organization Name */}

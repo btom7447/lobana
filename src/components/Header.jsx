@@ -42,29 +42,26 @@ const [isMenuOpen, setIsMenuOpen] = useState(false);
             className="w-24 h-auto object-contain"
           />
         </Link>
-
         {/* Desktop Nav */}
         <div className="hidden lg:block text-white">
           <NavLinks />
         </div>
-
         {/* Mobile Menu Toggle */}
         <button
-          onClick={() => setIsOriginalOpen(!isOriginalOpen)}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
           className={`block lg:hidden rounded-xl p-3 border transition-colors ${
             scrolled ? "border-black text-black" : "border-white text-white"
           }`}
           aria-label="Toggle Menu"
         >
-          {isOriginalOpen ? (
+          {isMenuOpen ? (
             <X size={20} strokeWidth={1} />
           ) : (
             <MenuIcon size={20} strokeWidth={1} />
           )}
         </button>
-
         {/* Mobile Nav Menu */}
-        <NavMenu isOpen={isOriginalOpen} setIsOpen={setIsOriginalOpen} />
+        <NavMenu isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
       </header>
 
       {/* Fixed Header */}
@@ -102,7 +99,7 @@ const [isMenuOpen, setIsMenuOpen] = useState(false);
           )}
         </button>
         {/* Mobile Nav Menu */}
-        <NavMenu isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />{" "}
+        <NavMenu isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
       </header>
     </>
   );
