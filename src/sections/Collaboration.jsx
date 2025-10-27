@@ -59,6 +59,18 @@ export default function CollaborationSection() {
         "Expert analysis",
       ],
     },
+    {
+      title: "Restaurant & Hotel",
+      icon: "/icons/restaurant-hotel.png",
+      description:
+        "Discover opportunities to invest in thriving restaurants, boutique hotels, and hospitality ventures",
+      benefits: [
+        "High-potential projects",
+        "Diversified income streams", 
+        "Shared expertise & insights", 
+        "Collaborative growth & profits"
+      ],
+    },
   ];
 
   return (

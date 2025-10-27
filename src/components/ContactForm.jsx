@@ -10,6 +10,7 @@ const subjects = [
   "Trade & Commerce",
   "Agriculture",
   "Investment",
+  "Restaurant & Hotel"
 ];
 
 export default function ContactForm() {

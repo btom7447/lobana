@@ -3,27 +3,36 @@ import Link from "next/link";
 
 export default function ServiceSection() {
 const services = [
-    {
-        title: "Real Estate",
-        description: "Sales, construction, and property management services tailored to meet modern needs.",
-        icon: "/icons/real-estate.png",
-    },
-    {
-        title: "Trade & Commerce",
-        description:
-        "Import/export and distribution of goods and materials with global reach.",
-        icon: "/icons/trade-commerce.png",
-    },
-    {
-        title: "Agriculture",
-        description: "Modern farming solutions, crop production, and agricultural supply chain management.",
-        icon: "/icons/agriculture.png",
-    },
-    {
-        title: "Investments",
-        description: "Strategic investments in properties and securities for long-term growth.",
-        icon: "/icons/investments.png",
-    },
+  {
+    title: "Real Estate",
+    description:
+      "Sales, construction, and property management services tailored to meet modern needs.",
+    icon: "/icons/real-estate.png",
+  },
+  {
+    title: "Trade & Commerce",
+    description:
+      "Import/export and distribution of goods and materials with global reach.",
+    icon: "/icons/trade-commerce.png",
+  },
+  {
+    title: "Agriculture",
+    description:
+      "Modern farming solutions, crop production, and agricultural supply chain management.",
+    icon: "/icons/agriculture.png",
+  },
+  {
+    title: "Investments",
+    description:
+      "Strategic investments in properties and securities for long-term growth.",
+    icon: "/icons/investments.png",
+  },
+  {
+    title: "Restaurant & Hotels",
+    description:
+      "Comfort, culinary excellenece, and world-class service for every guest.",
+    icon: "/icons/restaurant-hotel.png",
+  },
 ];
 
   return (

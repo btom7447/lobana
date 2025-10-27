@@ -38,7 +38,7 @@ export default function OurStory() {
             data-aos="fade-left"
             data-aos-delay="300"
           >
-            From our headquarters in Nigeria, we've quickly established
+            From our headquarters in Canada, we've quickly established
             ourselves as a trusted partner in real estate development,
             international trade, sustainable agriculture, and strategic
             investments. Our diverse portfolio allows us to adapt to market

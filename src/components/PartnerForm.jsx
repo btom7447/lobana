@@ -10,6 +10,7 @@ const interests = [
   "Trade & Commerce",
   "Agriculture",
   "Investment",
+  "Restaurant & Hotel"
 ];
 
 export default function PartnerForm() {
