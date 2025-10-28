@@ -20,7 +20,7 @@ export default function AboutSection() {
           data-aos="fade-right"
           data-aos-delay="200"
         >
-          Lobana International Ltd is a diversified company based in Nigeria
+          Lobana International Ltd is a diversified company based in Canada
           with operations across real estate, trade, agriculture, and
           investments.
         </p>

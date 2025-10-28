@@ -9,7 +9,9 @@ export default function Footer() {
       <div className="px-5 lg:px-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-10 items-start">
         {/* Company Section */}
         <div className="xl:col-span-1">
-          <h6 className="text-2xl font-light text-secondary mb-5">Quick Links</h6>
+          <h6 className="text-2xl font-light text-secondary mb-5">
+            Quick Links
+          </h6>
           <ul className="space-y-5">
             <li className="text-white font-light text-lg lg:text-xl hover:text-secondary">
               <Link href="/">Home</Link>
@@ -31,7 +33,9 @@ export default function Footer() {
 
         {/* Resources Section */}
         <div className="xl:col-span-1">
-          <h6 className="text-2xl font-light text-secondary mb-5">Our Services</h6>
+          <h6 className="text-2xl font-light text-secondary mb-5">
+            Our Services
+          </h6>
           <ul className="space-y-5">
             <li className="text-white font-light text-lg lg:text-xl hover:text-secondary">
               <Link href="/services">Real Estate</Link>
@@ -44,6 +48,9 @@ export default function Footer() {
             </li>
             <li className="text-white font-light text-lg lg:text-xl hover:text-secondary">
               <Link href="/services">Global Investments</Link>
+            </li>
+            <li className="text-white font-light text-lg lg:text-xl hover:text-secondary">
+              <Link href="/services">Restaurant & Hotel</Link>
             </li>
           </ul>
         </div>
