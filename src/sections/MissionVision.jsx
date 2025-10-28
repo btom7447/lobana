@@ -13,13 +13,13 @@ export default function MissionVisionSection() {
       title: "Our Mission",
       image: "/images/mission-poster.png",
       description:
-        "To create sustainable value and opportunities across real estate, trade, agriculture hospitality and investments while enhancing the communities we serve through innovation, integrity, and excellence.",
+        "To create sustainable value and opportunities across real estate, trade, agriculture, hospitality and investments while enhancing the communities we serve through innovation, integrity, and excellence.",
       list: [
         "Top-quality real estate service",
         "Seamless trade and commerce",
         "Strategic investments",
         "Professionalism & transparency practice",
-        "Premium restaurant and hotel experiences"
+        "Premium restaurant and hotel experiences",
       ],
     },
     {
@@ -31,7 +31,7 @@ export default function MissionVisionSection() {
         "Benchmark for excellence in all areas",
         "Empower communities and stakeholders",
         "Expanding regionally and internationally",
-        "Building long-term partnerships"
+        "Building long-term partnerships",
       ],
     },
   ];
