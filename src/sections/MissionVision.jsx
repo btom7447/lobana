@@ -13,7 +13,7 @@ export default function MissionVisionSection() {
       title: "Our Mission",
       image: "/images/mission-poster.png",
       description:
-        "To create sustainable value and opportunities across real estate, trade, agriculture, hospitality and investments while enhancing the communities we serve through innovation, integrity, and excellence.",
+        "To create sustainable value and opportunities across real estate, trade, agriculture, hospitality, Hotel & Restaurants and investments while enhancing the communities we serve through innovation, integrity, and excellence.",
       list: [
         "Top-quality real estate service",
         "Seamless trade and commerce",
