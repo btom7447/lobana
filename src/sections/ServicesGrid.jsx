@@ -57,7 +57,7 @@ export default function ServicesGridSection() {
       image: "/images/restaurant-hotel-poster.png",
       description:
         "Lobana's hospitality division blends comofrt, culture, and creativity to deliver exceptional dining and accommodation experiences. We set new standards in quality service, design and customer satisfaction - from world-class restaurants that celebrate diverse cuisines to hotels that redefine relaxation and luxury. Our goal is to make every guest experience memorable, meaningful, and authentically Lobana.",
-      image: "/images/investments-poster.png",
+      image: "/images/restaurant-hotel-poster.png",
       tags: ["comfort", "Luxury", "Excellence"],
     },
   ];
